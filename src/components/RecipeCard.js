@@ -4,7 +4,9 @@ import { Button, Stack, Typography } from "@mui/material";
 
 const RecipeCard = ({ recipe }) => {
   return (
-    <Link className="recipe-card" to={`/recipe/${recipe.label}`}>
+    <Link
+      className="recipe-card"
+      to={`/recipe/${recipe.uri.split("#recipe_")[1]}`}>
       <img src={recipe.image} alt={recipe.label} loading="lazy" />
       <Stack direction="row">
         {recipe.dietLabels.map((label, index) => (

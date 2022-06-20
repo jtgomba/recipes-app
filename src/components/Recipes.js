@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Pagination, Box, Stack, Typography } from "@mui/material";
 
 import RecipeCard from "../components/RecipeCard";
-import { recipeOptions, fetchData } from "../util/fetchData";
 
-const Recipes = ({ recipes, setRecipes, foodType, setFoodType }) => {
+const Recipes = ({ recipes }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const recipesPerPage = 9;
 

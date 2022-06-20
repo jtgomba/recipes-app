@@ -28,15 +28,15 @@ const RightArrow = () => {
 
 const HorizontalScrollbar = ({ setFoodType, foodType }) => {
   const pType = [
-    { name: "Meat", id: 1 },
-    { name: "Poultry", id: 2 },
-    { name: "Fish", id: 3 },
-    { name: "Dairy", id: 4 },
-    { name: "Fruits", id: 5 },
-    { name: "Vegetables", id: 6 },
-    { name: "Grains", id: 7 },
-    { name: "Nuts", id: 8 },
-    { name: "Seeds", id: 9 },
+    { name: "Meat", id: 0 },
+    { name: "Poultry", id: 1 },
+    { name: "Fish", id: 2 },
+    { name: "Dairy", id: 3 },
+    { name: "Fruits", id: 4 },
+    { name: "Vegetables", id: 5 },
+    { name: "Grains", id: 6 },
+    { name: "Nuts", id: 7 },
+    { name: "Seeds", id: 8 },
   ];
 
   return (

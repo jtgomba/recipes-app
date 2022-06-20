@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stack, Typography, Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { purple } from "@mui/material/colors";
 import HeroBannerImage from "../assets/assets/images/undrawHeroBanner.svg";
