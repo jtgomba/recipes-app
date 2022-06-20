@@ -4,25 +4,26 @@ import { Button, Stack, Typography } from "@mui/material";
 
 const RecipeCard = ({ recipe }) => {
   return (
-    <Link
-      className="recipe-card"
-      to={`/recipe/${recipe.uri.split("#recipe_")[1]}`}>
-      <img src={recipe.image} alt={recipe.label} loading="lazy" />
+    <Link className="recipe-card" to={`/recipe/${recipe.id}`}>
+      <img src={recipe.thumbnail_url} alt={recipe.name} loading="lazy" />
       <Stack direction="row">
-        {recipe.dietLabels.map((label, index) => (
-          <Button
-            sx={{
-              ml: "21px",
-              color: "#fff",
-              background: "#ffa9a9",
-              fontSize: "16px",
-              borderRadius: "20px",
-              textTransform: "capitalize",
-            }}
-            key={index}>
-            {label}
-          </Button>
-        ))}
+        {recipe.tags.map((label, index) => {
+          if (index < 3)
+            return (
+              <Button
+                sx={{
+                  ml: "21px",
+                  color: "#fff",
+                  background: "#ffa9a9",
+                  fontSize: "16px",
+                  borderRadius: "20px",
+                  textTransform: "capitalize",
+                }}
+                key={index}>
+                {label.display_name}
+              </Button>
+            );
+        })}
       </Stack>
       <Typography
         ml="21px"
@@ -31,7 +32,7 @@ const RecipeCard = ({ recipe }) => {
         mt="11px"
         textTransform="capitalize"
         fontSize="22px">
-        {recipe.label}
+        {recipe.name}
       </Typography>
     </Link>
   );

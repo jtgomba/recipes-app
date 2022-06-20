@@ -12,10 +12,10 @@ const Home = () => {
   useEffect(() => {
     const handleSearch = async () => {
       const recipeData = await fetchData(
-        "https://api.edamam.com/api/recipes/v2",
+        "https://tasty.p.rapidapi.com/recipes/list",
         recipeOptions(foodType)
       );
-      setRecipes(recipeData.hits);
+      setRecipes(recipeData.results);
     };
     if (foodType) {
       handleSearch();

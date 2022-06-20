@@ -1,32 +1,24 @@
 import axios from "axios";
-import qs from "qs";
 
 //params needs at a object with at least equaling something e.g. q: "chicken"
 export const recipeOptions = (search) => {
   return {
     method: "GET",
+    params: { from: "0", size: "50", q: search },
     headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
+      "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_API_KEY,
+      "X-RapidAPI-Host": "tasty.p.rapidapi.com",
     },
-    params: {
-      type: "public",
-      q: search,
-      app_id: process.env.REACT_APP_EDAMAM_APP_ID,
-      app_key: process.env.REACT_APP_EDAMAM_APP_KEY,
-      field: [
-        "label",
-        "image",
-        "dietLabels",
-        "healthLabels",
-        "ingredients",
-        "calories",
-        "url",
-        "yield",
-      ],
-    },
-    paramsSerializer: (params) => {
-      return qs.stringify(params, { arrayFormat: "repeat" });
+  };
+};
+
+export const getOneRecipe = (id) => {
+  return {
+    method: "GET",
+    params: { id: id },
+    headers: {
+      "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_API_KEY,
+      "X-RapidAPI-Host": "tasty.p.rapidapi.com",
     },
   };
 };
@@ -36,7 +28,6 @@ export const youtubeOptions = (query) => {
     method: "GET",
     params: {
       query: query,
-      next: "EogDEgVoZWxsbxr-AlNCU0NBUXRaVVVoeldFMW5iRU01UVlJQkMyMUlUMDVPWTFwaWQwUlpnZ0VMWW1VeE1rSkROWEJSVEVXQ0FRdFZNMEZUYWpGTU5sOXpXWUlCQzJaaGVrMVRRMXBuTFcxM2dnRUxaV3hrWldGSlFYWmZkMFdDQVExU1JGbFJTSE5ZVFdkc1F6bEJnZ0VMT0hwRVUybHJRMmc1Tm1PQ0FRc3pOMFU1VjNORWJVUmxaNElCQzJGaFNXcHpPRXN6YjFsdmdnRUxaMmRvUkZKS1ZuaEdlRldDQVF0clN6UXlURnB4VHpCM1FZSUJDME42VHpOaFNXVXdVbkJ6Z2dFTFNVNHdUMk5WZGtkaU5qQ0NBUXRSYTJWbGFGRTRSRjlXVFlJQkMyWk9NVU41Y2pCYVN6bE5nZ0VMZEZac1kwdHdNMkpYU0RpQ0FRdGZSQzFGT1Rsa01XSk1TWUlCQzJoQlUwNVRSSFZOY2pGUmdnRUxkREEzTVZkdE5EVnhWMDAlM0QYgeDoGCILc2VhcmNoLWZlZWQ%3D",
       hl: "en",
       gl: "US",
       sort: "r",

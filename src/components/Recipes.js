@@ -28,7 +28,7 @@ const Recipes = ({ recipes }) => {
         justifyContent="center">
         {currentRecipes &&
           currentRecipes.map((recipe) => (
-            <RecipeCard key={recipe.recipe.uri} recipe={recipe.recipe} />
+            <RecipeCard key={recipe.id} recipe={recipe} />
           ))}
       </Stack>
       <Stack mt="100px" alignItems="center">

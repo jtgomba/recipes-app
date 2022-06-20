@@ -6,7 +6,7 @@ import Detail from "../components/Detail.js";
 import RecipeVideos from "../components/RecipeVideos.js";
 import SimilarRecipes from "../components/SimilarRecipes.js";
 
-import { fetchData, recipeOptions, youtubeOptions } from "../util/fetchData";
+import { fetchData, getOneRecipe, youtubeOptions } from "../util/fetchData";
 
 const RecipeDetail = () => {
   const [recipeDetail, setRecipeDetail] = useState({});
@@ -14,15 +14,15 @@ const RecipeDetail = () => {
 
   useEffect(() => {
     const fetchRecipeData = async () => {
-      const receipeDBUrl = `https://api.edamam.com/api/recipes/v2/${id}`;
+      const receipeDBUrl = "https://tasty.p.rapidapi.com/recipes/get-more-info";
       const youtubeURL =
         "https://youtube-search-and-download.p.rapidapi.com/search";
-      const recipeData = await fetchData(receipeDBUrl, recipeOptions());
-      setRecipeDetail(recipeData.recipe);
-      console.log(recipeData.recipe);
+      const recipeData = await fetchData(receipeDBUrl, getOneRecipe(id));
+      setRecipeDetail(recipeData);
+      console.log(recipeData);
       const youtubeData = await fetchData(
         youtubeURL,
-        youtubeOptions(recipeData.recipe.label)
+        youtubeOptions(recipeData.name)
       );
     };
 
