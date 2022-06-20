@@ -26,28 +26,24 @@ const RightArrow = () => {
   );
 };
 
-const HorizontalScrollbar = ({ setProteinType, proteinType }) => {
+const HorizontalScrollbar = ({ setFoodType, foodType }) => {
   const pType = [
-    { name: "meat", id: 1 },
-    { name: "poultry", id: 2 },
-    { name: "fish", id: 3 },
-    { name: "dairy", id: 4 },
-    { name: "fruits", id: 5 },
-    { name: "vegetables", id: 6 },
-    { name: "grains", id: 7 },
-    { name: "nuts", id: 8 },
-    { name: "seeds", id: 9 },
+    { name: "Meat", id: 1 },
+    { name: "Poultry", id: 2 },
+    { name: "Fish", id: 3 },
+    { name: "Dairy", id: 4 },
+    { name: "Fruits", id: 5 },
+    { name: "Vegetables", id: 6 },
+    { name: "Grains", id: 7 },
+    { name: "Nuts", id: 8 },
+    { name: "Seeds", id: 9 },
   ];
 
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
       {pType.map((item) => (
         <Box key={item.id} itemId={item.id} title={item.id} m="0 40px">
-          <FoodType
-            item={item}
-            setProteinType={setProteinType}
-            proteinType={proteinType}
-          />
+          <FoodType item={item} setFoodType={setFoodType} foodType={foodType} />
         </Box>
       ))}
     </ScrollMenu>

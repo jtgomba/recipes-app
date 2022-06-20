@@ -3,7 +3,7 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { recipeOptions, fetchData } from "../util/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
-const SearchRecipes = ({ setRecipes, setProteinType, proteinType }) => {
+const SearchRecipes = ({ setRecipes, setFoodType, foodType }) => {
   const [search, setSearch] = useState("");
 
   const handleSearch = async () => {
@@ -12,8 +12,13 @@ const SearchRecipes = ({ setRecipes, setProteinType, proteinType }) => {
         "https://api.edamam.com/api/recipes/v2",
         recipeOptions(search)
       );
+
+      document
+        .getElementById("#recipes")
+        .scrollIntoView({ behavour: "smooth" });
+
       setSearch("");
-      setRecipes(recipeData);
+      setRecipes(recipeData.hits);
     }
   };
 
@@ -62,10 +67,7 @@ const SearchRecipes = ({ setRecipes, setProteinType, proteinType }) => {
           width: "100%",
           p: "20px",
         }}>
-        <HorizontalScrollbar
-          setProteinType={setProteinType}
-          proteinType={proteinType}
-        />
+        <HorizontalScrollbar setFoodType={setFoodType} foodType={foodType} />
       </Box>
     </Stack>
   );

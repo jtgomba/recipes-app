@@ -2,7 +2,7 @@ import React from "react";
 import { Stack, Typography } from "@mui/material";
 import undrawItem from "../assets/assets/icons/undrawItem.svg";
 
-const FoodType = ({ item, setProteinType, proteinType }) => {
+const FoodType = ({ item, setFoodType, foodType }) => {
   return (
     <Stack
       type="button"
@@ -10,13 +10,19 @@ const FoodType = ({ item, setProteinType, proteinType }) => {
       justifyContent="center"
       className="food-card"
       sx={{
-        borderTop: proteinType === item.name ? "4px solid #ff2625" : "",
+        borderTop: foodType === item.name ? "4px solid #ff2625" : "",
         backgroundColor: "#fff",
         borderBottomLeftRadius: "20px",
         width: "270px",
         height: "280px",
         cursor: "pointer",
         gap: "47px",
+      }}
+      onClick={() => {
+        setFoodType(item.name);
+        document
+          .getElementById("#recipes")
+          .scrollIntoView({ behavour: "smooth" });
       }}>
       <img
         src={undrawItem}
