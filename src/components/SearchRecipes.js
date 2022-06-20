@@ -1,7 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import { recipeOptions, fetchData } from "../util/fetchData";
+import HorizontalScrollbar from "./HorizontalScrollbar";
 
-const SearchRecipes = () => {
+const SearchRecipes = ({ setRecipes, setProteinType, proteinType }) => {
+  const [search, setSearch] = useState("");
+
+  const handleSearch = async () => {
+    if (search) {
+      const recipeData = await fetchData(
+        "https://api.edamam.com/api/recipes/v2",
+        recipeOptions(search)
+      );
+      setSearch("");
+      setRecipes(recipeData);
+    }
+  };
+
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
       <Typography
@@ -20,8 +35,8 @@ const SearchRecipes = () => {
             borderRadius: "20px",
           }}
           height="76px"
-          value=""
-          onChange={(e) => {}}
+          value={search}
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
           placeholder="Seach Recipes"
           type="text"
         />
@@ -31,14 +46,26 @@ const SearchRecipes = () => {
             backgroundColor: "#ff2625",
             color: "#fff",
             textTransform: "none",
-            width: { xs: "80px", lg: "175px" },
+            width: { xs: "80px", lg: "173px" },
             fontSize: { xs: "14px", lg: "20px" },
             height: "56px",
             position: "absolute",
             right: "0",
-          }}>
+          }}
+          onClick={handleSearch}>
           Search
         </Button>
+      </Box>
+      <Box
+        sx={{
+          position: "relative",
+          width: "100%",
+          p: "20px",
+        }}>
+        <HorizontalScrollbar
+          setProteinType={setProteinType}
+          proteinType={proteinType}
+        />
       </Box>
     </Stack>
   );
