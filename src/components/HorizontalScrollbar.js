@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import { Box, Typography } from "@mui/material";
+
 import FoodType from "./FoodType";
+import RecipeCard from "./RecipeCard";
 
 import RightArrowIcon from "../assets/assets/icons/right-arrow.png";
 import LeftArrowIcon from "../assets/assets/icons/left-arrow.png";
@@ -26,7 +28,7 @@ const RightArrow = () => {
   );
 };
 
-const HorizontalScrollbar = ({ setFoodType, foodType }) => {
+const HorizontalScrollbar = ({ data, setFoodType, foodType, isRecipe }) => {
   const pType = [
     { name: "Meat", id: 0 },
     { name: "Poultry", id: 1 },
@@ -41,11 +43,21 @@ const HorizontalScrollbar = ({ setFoodType, foodType }) => {
 
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-      {pType.map((item) => (
-        <Box key={item.id} itemId={item.id} title={item.id} m="0 40px">
-          <FoodType item={item} setFoodType={setFoodType} foodType={foodType} />
-        </Box>
-      ))}
+      {isRecipe
+        ? data.map((item) => (
+            <Box key={item.id} itemId={item.id} title={item.id} m="0 40px">
+              <RecipeCard key={item.id} recipe={item} />
+            </Box>
+          ))
+        : pType.map((item) => (
+            <Box key={item.id} itemId={item.id} title={item.id} m="0 40px">
+              <FoodType
+                item={item}
+                setFoodType={setFoodType}
+                foodType={foodType}
+              />
+            </Box>
+          ))}
     </ScrollMenu>
   );
 };

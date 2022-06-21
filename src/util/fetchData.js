@@ -23,6 +23,17 @@ export const getOneRecipe = (id) => {
   };
 };
 
+export const getSimilar = (id) => {
+  return {
+    method: "GET",
+    params: { recipe_id: id },
+    headers: {
+      "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_API_KEY,
+      "X-RapidAPI-Host": "tasty.p.rapidapi.com",
+    },
+  };
+};
+
 export const youtubeOptions = (query) => {
   return {
     method: "GET",
@@ -33,7 +44,7 @@ export const youtubeOptions = (query) => {
       sort: "r",
     },
     headers: {
-      "X-RapidAPI-Key": "64c324ccadmshd13054b9548e8a9p1c0d3fjsnbe75316a3848",
+      "X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_API_KEY,
       "X-RapidAPI-Host": "youtube-search-and-download.p.rapidapi.com",
     },
   };

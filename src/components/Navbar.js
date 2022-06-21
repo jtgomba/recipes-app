@@ -6,6 +6,7 @@ import Logo from "../assets/assets/images/undrawBreakfast.svg";
 const Navbar = () => {
   return (
     <Stack
+      id="navbar"
       direction="row"
       justifyContent="space-around"
       sx={{

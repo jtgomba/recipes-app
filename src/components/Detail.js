@@ -4,18 +4,20 @@ import {
   Stack,
   List,
   ListItem,
-  ListItemAvatar,
-  Avatar,
   Divider,
   ListItemText,
-  Button,
   Box,
 } from "@mui/material";
 
 const Detail = ({ recipeDetail }) => {
-  const { thumbnail_url, name, instructions, sections, nutrition } =
-    recipeDetail;
-  console.log(recipeDetail);
+  const {
+    thumbnail_url,
+    name,
+    instructions,
+    sections,
+    nutrition,
+    description,
+  } = recipeDetail;
   return (
     <Box>
       <Stack
@@ -29,6 +31,7 @@ const Detail = ({ recipeDetail }) => {
         />
         <Stack direction="column">
           <Typography variant="h3">{name}</Typography>
+          <Typography variant="p">{description}</Typography>
         </Stack>
       </Stack>
       <Stack

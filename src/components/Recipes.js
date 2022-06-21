@@ -9,7 +9,7 @@ const Recipes = ({ recipes }) => {
 
   const paginate = (e, value) => {
     setCurrentPage(value);
-    document.getElementById("#recipes").scrollIntoView({ behavour: "smooth" });
+    document.getElementById("recipes").scrollIntoView({ behavour: "smooth" });
   };
 
   const indexOfLastRecipe = currentPage * recipesPerPage;
@@ -17,7 +17,7 @@ const Recipes = ({ recipes }) => {
   const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
   return (
-    <Box id="#recipes" sx={{ mt: { lg: "110px" } }} mt="50px" p="20px">
+    <Box id="recipes" sx={{ mt: { lg: "110px" } }} mt="50px" p="20px">
       <Typography variant="h3" mb="46px">
         Showing Results
       </Typography>

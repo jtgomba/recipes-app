@@ -95,7 +95,7 @@ body {
   border: 1px solid #ff2625 !important;
 }
 
-.food-video {
+.recipe-video {
   display: flex;
   flex-direction: column;
   gap: 24px;

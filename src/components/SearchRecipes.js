@@ -9,16 +9,14 @@ const SearchRecipes = ({ setRecipes, setFoodType, foodType }) => {
   const handleSearch = async () => {
     if (search) {
       const recipeData = await fetchData(
-        "https://api.edamam.com/api/recipes/v2",
+        "https://tasty.p.rapidapi.com/recipes/list",
         recipeOptions(search)
       );
 
-      document
-        .getElementById("#recipes")
-        .scrollIntoView({ behavour: "smooth" });
+      document.getElementById("recipes").scrollIntoView({ behavour: "smooth" });
 
       setSearch("");
-      setRecipes(recipeData.hits);
+      setRecipes(recipeData.results);
     }
   };
 
@@ -67,7 +65,11 @@ const SearchRecipes = ({ setRecipes, setFoodType, foodType }) => {
           width: "100%",
           p: "20px",
         }}>
-        <HorizontalScrollbar setFoodType={setFoodType} foodType={foodType} />
+        <HorizontalScrollbar
+          setFoodType={setFoodType}
+          foodType={foodType}
+          isRecipe={false}
+        />
       </Box>
     </Stack>
   );

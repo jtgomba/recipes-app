@@ -21,7 +21,7 @@ const FoodType = ({ item, setFoodType, foodType }) => {
       onClick={() => {
         setFoodType(item.name);
         document
-          .getElementById("#recipes")
+          .getElementById("recipes")
           .scrollIntoView({ behavour: "smooth" });
       }}>
       <img
