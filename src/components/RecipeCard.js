@@ -8,7 +8,7 @@ const RecipeCard = ({ recipe }) => {
       <img src={recipe.thumbnail_url} alt={recipe.name} loading="lazy" />
       <Stack direction="row">
         {recipe.tags.map((label, index) => {
-          if (index < 3)
+          if (index < 3) {
             return (
               <Button
                 sx={{
@@ -19,10 +19,12 @@ const RecipeCard = ({ recipe }) => {
                   borderRadius: "20px",
                   textTransform: "capitalize",
                 }}
-                key={index}>
+                key={index}
+              >
                 {label.display_name}
               </Button>
             );
+          } else return "";
         })}
       </Stack>
       <Typography
@@ -31,7 +33,8 @@ const RecipeCard = ({ recipe }) => {
         fontWeight="bold"
         mt="11px"
         textTransform="capitalize"
-        fontSize="22px">
+        fontSize="22px"
+      >
         {recipe.name}
       </Typography>
     </Link>
