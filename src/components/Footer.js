@@ -7,8 +7,8 @@ const Footer = () => {
   return (
     <Box mt="40px" bgcolor={purple[100]}>
       <Stack alignItems="center">
-        <img src={undrawCooking} alt="logo" width="200px" height="40px" />
-        <Typography variant="h5">Made by Joel Gomba</Typography>
+        <img src={undrawCooking} alt="logo" width="200px" height="20px" />
+        <Typography variant="h6">Made by Joel Gomba</Typography>
       </Stack>
     </Box>
   );
