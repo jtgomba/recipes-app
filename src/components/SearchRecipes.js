@@ -3,11 +3,13 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { recipeOptions, fetchData } from "../util/fetchData";
 import HorizontalScrollbar from "./HorizontalScrollbar";
 
-const SearchRecipes = ({ setRecipes, setFoodType, foodType }) => {
+const SearchRecipes = ({ setRecipes, setFoodType, foodType, setIsLoading }) => {
   const [search, setSearch] = useState("");
 
   const handleSearch = async () => {
     if (search) {
+      setIsLoading(true);
+      setRecipes([]);
       const recipeData = await fetchData(
         "https://tasty.p.rapidapi.com/recipes/list",
         recipeOptions(search)

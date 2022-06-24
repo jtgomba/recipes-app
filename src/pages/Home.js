@@ -8,6 +8,7 @@ import { recipeOptions, fetchData } from "../util/fetchData";
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [foodType, setFoodType] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const handleSearch = async () => {
@@ -15,12 +16,20 @@ const Home = () => {
         "https://tasty.p.rapidapi.com/recipes/list",
         recipeOptions(foodType)
       );
+      setIsLoading(true);
       setRecipes(recipeData.results);
     };
     if (foodType) {
       handleSearch();
+      setIsLoading(true);
     }
   }, [foodType]);
+
+  useEffect(() => {
+    if (recipes.length) {
+      setIsLoading(false);
+    }
+  }, [recipes]);
 
   return (
     <Box>
@@ -29,8 +38,9 @@ const Home = () => {
         setRecipes={setRecipes}
         foodType={foodType}
         setFoodType={setFoodType}
+        setIsLoading={setIsLoading}
       />
-      <Recipes setRecipes={setRecipes} recipes={recipes} foodType={foodType} />
+      <Recipes recipes={recipes} isLoading={isLoading} />
     </Box>
   );
 };
