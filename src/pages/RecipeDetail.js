@@ -47,7 +47,10 @@ const RecipeDetail = () => {
   if (!youtubeVideos) return "Loading...";
   return (
     <Box>
-      <Detail recipeDetail={recipeDetail} />
+      <Detail
+        recipeDetail={recipeDetail}
+        youtubeVideos={youtubeVideos.contents}
+      />
       <RecipeVideos
         youtubeVideos={youtubeVideos.contents}
         name={recipeDetail.name}

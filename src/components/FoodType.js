@@ -1,8 +1,7 @@
 import React from "react";
 import { Stack, Typography } from "@mui/material";
-import undrawItem from "../assets/assets/icons/undrawItem.svg";
 
-const FoodType = ({ item, setFoodType, foodType }) => {
+const FoodType = ({ item, setFoodType, foodType, image }) => {
   return (
     <Stack
       type="button"
@@ -25,9 +24,9 @@ const FoodType = ({ item, setFoodType, foodType }) => {
           .scrollIntoView({ behavour: "smooth" });
       }}>
       <img
-        src={undrawItem}
-        style={{ width: "180px" }}
-        alt="girl looking at phone menu"
+        src={image}
+        style={{ width: "180px", maxHeight: "180px" }}
+        alt={item.name}
       />
       <Typography fontSize="24px" fontWeight="bold" color="#3A1212">
         {item.name}
