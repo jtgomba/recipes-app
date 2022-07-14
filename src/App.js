@@ -5,7 +5,6 @@ import { Box } from "@mui/material";
 import Home from "./pages/Home.js";
 import RecipeDetail from "./pages/RecipeDetail.js";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 const App = () => {
   return (
