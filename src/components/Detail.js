@@ -51,7 +51,13 @@ const Detail = ({ recipeDetail, youtubeVideos }) => {
       </Stack>
       <Stack
         gap="60px"
-        sx={{ flexDirection: { lg: "row" }, p: "20px", alignItems: "top" }}>
+        sx={{
+          flexDirection: { lg: "row" },
+          p: "20px",
+          alignItems: "top",
+          backgroundColor: "rgba(255, 255, 255, 0.4)",
+          borderRadius: 2,
+        }}>
         <List
           sx={{ width: "100%", maxWidth: "360px" }}
           subheader={

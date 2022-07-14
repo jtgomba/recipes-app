@@ -10,8 +10,8 @@ const FoodType = ({ item, setFoodType, foodType, image }) => {
       className="food-card"
       sx={{
         borderTop: foodType === item.name ? "4px solid #ff2625" : "",
-        backgroundColor: "#fff",
-        borderBottomLeftRadius: "20px",
+        backgroundColor: "rgba(255, 255, 255, 0.4)",
+        borderRadius: "20px",
         width: "270px",
         height: "280px",
         cursor: "pointer",
